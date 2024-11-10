@@ -1,0 +1,127 @@
+---
+title: "Using Special Functions"
+output: 
+  rmarkdown::github_document
+vignette: >
+  %\VignetteIndexEntry{Using Special Functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+knitr::opts_knit$set(root.dir = "C:/Users/pc/Documents/SpecialFunctions")
+```
+
+```{r setup}
+# Load the SpecialFunctions package
+#devtools::install()
+library(SpecialFunctions)
+library(knitr)
+```
+
+# Introduction
+
+The **SpecialFunctions** package is designed to provide easy access to a variety of special mathematical functions. This vignette demonstrates how to use the functions included in the package, such as the Gamma, Beta, Factorial, Double Factorial, and Error functions. Special functions are essential in many areas of mathematics, physics, engineering, and statistics.
+
+This vignette will walk you through examples of using these functions to perform calculations and understand their properties.
+
+## Gamma Function
+
+The **Gamma function** is an extension of the factorial function to real and complex numbers. For a positive integer \(n\), the Gamma function \(\Gamma(n)\) is defined as:
+
+$$
+\Gamma(n) = (n-1)!
+$$
+
+For real (and even complex) numbers, the Gamma function is defined by the following integral:
+
+$$
+\Gamma(x) = \int_0^\infty t^{x-1} e^{-t} dt
+$$
+```{r}
+# Calculate Gamma(5) using the gamma() function from SpecialFunctions
+gamma_value <- mygamma(5)
+gamma_value  # This will return 24
+```
+## Beta Function
+
+The **Beta function** is a special function that is widely used in probability theory and statistics. It is defined as:
+
+$$
+B(x, y) = \int_0^1 t^{x-1}(1-t)^{y-1} dt
+$$
+
+Alternatively, it can also be expressed as:
+
+$$
+B(x, y) = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)}
+$$
+
+```{r}
+# Calculate Beta(2, 3)
+beta_value <- mybeta(2, 3)
+beta_value   # This will return 0.08333333
+```
+
+## Factorial Function
+
+The **Factorial function** is a mathematical function that multiplies a number by all the integers below it, except 0 which is defined as 1.
+
+For a positive integer \(n\), the Factorial function is defined as:
+
+$$
+n! = n \times (n-1) \times (n-2) \times ... \times 1
+$$
+
+The factorial function is widely used in combinatorics, probability theory, and algebra.
+
+```{r}
+# Calculate Factorial(5) using the myfactorial() function from SpecialFunctions
+factorial_value <- myfactorial(5)
+factorial_value  # This will return 120
+```
+
+## Double Factorial Function
+
+The **Double Factorial function** is defined as:
+
+- If n is an even number, then 
+$$
+n!!= n \times (n-2) \times (n-4) \times \dots \times 2.
+$$ 
+- If n is an odd number, then 
+$$
+n!!= n \times (n-2) \times (n-4) \times \dots \times 1.
+$$ 
+
+### Example
+
+Below is an example of calculating the double factorial of 6 using the `mydoublefactorial()` function from the **SpecialFunctions** package:
+
+```{r}
+# Calculate Double Factorial(6) using the mydoublefactorial() function from SpecialFunctions
+double_factorial_value <- mydoublefactorial(6)
+double_factorial_value  # This will return 48
+```
+## Error Function (erf)
+
+The **Error function (erf)** is an important function in probability and statistics, and it is used to calculate the cumulative distribution of the standard normal distribution.
+
+The Error function is defined as:
+
+$$
+\text{erf}(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} dt
+$$
+
+### Example
+
+Below is an example of using the `myerf()` function from the **SpecialFunctions** package to compute the error function of 1:
+```{r}
+# Calculate erf(1) using the myerf() function from SpecialFunctions
+erf_value <- myerf(1)
+erf_value   # This will return 0.8427008
+```

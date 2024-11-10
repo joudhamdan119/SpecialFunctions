@@ -1,0 +1,15 @@
+Package: SpecialFunctions
+Type: Package
+Title: A Package for Special Mathematical Functions
+Version: 0.1.0
+Author: Aya Morsi
+Maintainer: Joud Hamdan <g00095608@aus.edu>
+Description: Provides implementations of special mathematical functions like Gamma, Beta, Factorial, Double Factorial, and Erf.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
